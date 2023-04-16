@@ -1,0 +1,8 @@
+C:\Users\cha\Desktop\FCPJT\filesystemwatcher\bin\Release\filesystemwatcher.exe
+C:\Users\cha\Desktop\FCPJT\filesystemwatcher\bin\Release\filesystemwatcher.pdb
+C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\TrayApp.MainForm.resources
+C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.Properties.Resources.resources
+C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.csproj.GenerateResource.cache
+C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.csproj.CoreCompileInputs.cache
+C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.exe
+C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.pdb
