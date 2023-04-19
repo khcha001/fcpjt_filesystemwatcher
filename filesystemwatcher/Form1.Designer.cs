@@ -7,6 +7,9 @@ namespace TrayApp
         /// 필수 디자이너 변수입니다.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Label allowedExtensionsLabel;
+        private System.Windows.Forms.TextBox allowedExtensionsTextBox;
+        private System.Windows.Forms.CheckBox includeSubfoldersCheckBox;
 
         /// <summary>
         /// 사용 중인 모든 리소스를 정리합니다.
@@ -37,6 +40,9 @@ namespace TrayApp
             this.logPathTextBox = new System.Windows.Forms.TextBox();
             this.startButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.allowedExtensionsLabel = new System.Windows.Forms.Label();
+            this.allowedExtensionsTextBox = new System.Windows.Forms.TextBox();
+            this.includeSubfoldersCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // watchPathLabel
@@ -53,7 +59,7 @@ namespace TrayApp
             this.savePathLabel.AutoSize = true;
             this.savePathLabel.Location = new System.Drawing.Point(15, 49);
             this.savePathLabel.Name = "savePathLabel";
-            this.savePathLabel.Size = new System.Drawing.Size(66, 12);
+            this.savePathLabel.Size = new System.Drawing.Size(80, 12);
             this.savePathLabel.TabIndex = 1;
             this.savePathLabel.Text = "Backup Path:";
             // 
@@ -90,7 +96,7 @@ namespace TrayApp
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(19, 120);
+            this.startButton.Location = new System.Drawing.Point(17, 156);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(87, 21);
             this.startButton.TabIndex = 6;
@@ -100,13 +106,42 @@ namespace TrayApp
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(269, 120);
+            this.closeButton.Location = new System.Drawing.Point(274, 156);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(87, 21);
             this.closeButton.TabIndex = 7;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // allowedExtensionsLabel
+            // 
+            this.allowedExtensionsLabel.AutoSize = true;
+            this.allowedExtensionsLabel.Location = new System.Drawing.Point(15, 123);
+            this.allowedExtensionsLabel.Name = "allowedExtensionsLabel";
+            this.allowedExtensionsLabel.Size = new System.Drawing.Size(83, 12);
+            this.allowedExtensionsLabel.TabIndex = 8;
+            this.allowedExtensionsLabel.Text = "Allowed Exts:";
+            // 
+            // allowedExtensionsTextBox
+            // 
+            this.allowedExtensionsTextBox.Location = new System.Drawing.Point(98, 120);
+            this.allowedExtensionsTextBox.Name = "allowedExtensionsTextBox";
+            this.allowedExtensionsTextBox.Size = new System.Drawing.Size(258, 21);
+            this.allowedExtensionsTextBox.TabIndex = 9;
+            // 
+            // includeSubfoldersCheckBox
+            // 
+            this.includeSubfoldersCheckBox.AutoSize = true;
+            this.includeSubfoldersCheckBox.Checked = true;
+            this.includeSubfoldersCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.includeSubfoldersCheckBox.Location = new System.Drawing.Point(17, 194);
+            this.includeSubfoldersCheckBox.Name = "includeSubfoldersCheckBox";
+            this.includeSubfoldersCheckBox.Size = new System.Drawing.Size(129, 16);
+            this.includeSubfoldersCheckBox.TabIndex = 10;
+            this.includeSubfoldersCheckBox.Text = "Include Subfolders";
+            this.includeSubfoldersCheckBox.UseVisualStyleBackColor = true;
+            this.includeSubfoldersCheckBox.CheckedChanged += new System.EventHandler(this.includeSubfoldersCheckBox_CheckedChanged);
             // 
             // MainForm
             // 
@@ -121,6 +156,9 @@ namespace TrayApp
             this.Controls.Add(this.logPathLabel);
             this.Controls.Add(this.savePathLabel);
             this.Controls.Add(this.watchPathLabel);
+            this.Controls.Add(this.allowedExtensionsLabel);
+            this.Controls.Add(this.allowedExtensionsTextBox);
+            this.Controls.Add(this.includeSubfoldersCheckBox);
             this.Name = "MainForm";
             this.Text = "File Watcher";
             this.Load += new System.EventHandler(this.MainForm_Load);

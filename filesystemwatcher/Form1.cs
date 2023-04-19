@@ -15,7 +15,7 @@ namespace TrayApp
         private List<string> watchPaths;
         private List<FileSystemWatcher> watcherList;
 
-
+        private List<string> allowedExtensions; //확장자 제한기능 추가
 
         private NotifyIcon trayIcon;
         private ContextMenuStrip trayMenu;
@@ -59,6 +59,8 @@ namespace TrayApp
 
             watcher.IncludeSubdirectories = true;
 
+            watcherList = new List<FileSystemWatcher>();
+
             foreach (string path in watchPaths)
             {
                 FileSystemWatcher watcher = new FileSystemWatcher();
@@ -69,7 +71,9 @@ namespace TrayApp
                 watcher.Renamed += new RenamedEventHandler(OnRenamed);
                 watcher.Created += new FileSystemEventHandler(OnCreated);
                 watcher.EnableRaisingEvents = true;
-                
+                watcher.IncludeSubdirectories = true;
+
+                watcherList.Add(watcher); // 
             }
 
         }
@@ -94,10 +98,16 @@ namespace TrayApp
                 savePath = parser.GetValue("Paths", "SavePath", "");
                 logPath = parser.GetValue("Paths", "LogPath", "");
 
+                // Get allowed extensions from INI file
+                allowedExtensions = parser.GetValueList("Extensions", "AllowedExtensions", "");
+
                 // WatchPaths를 화면에 표시
                 watchPathTextBox.Text = string.Join(", ", watchPaths.ToArray());
                 savePathTextBox.Text = savePath;
                 logPathTextBox.Text = logPath;
+
+                // AllowedExtensions를 화면에 표시
+                allowedExtensionsTextBox.Text = string.Join(", ", allowedExtensions.ToArray());
             }
             else
             {
@@ -108,12 +118,18 @@ namespace TrayApp
 
         private void Start_Click(object sender, EventArgs e)
         {
-            watcher.EnableRaisingEvents = true;
+            foreach (FileSystemWatcher watcher in watcherList)
+            {
+                watcher.EnableRaisingEvents = true;
+            }
         }
 
         private void Close_Click(object sender, EventArgs e)
         {
-            watcher.EnableRaisingEvents = false;
+            foreach (FileSystemWatcher watcher in watcherList)
+            {
+                watcher.EnableRaisingEvents = false;
+            }
             trayIcon.Visible = false;
             Application.Exit();
         }
@@ -122,6 +138,12 @@ namespace TrayApp
         {
             try
             {
+                // Check file extension
+                string fileExtension = Path.GetExtension(e.FullPath);
+                if (!allowedExtensions.Contains(fileExtension))
+                {
+                    return;
+                }
                 foreach (var watchPath in watchPaths)
                 {
                     if (e.FullPath.StartsWith(watchPath, StringComparison.InvariantCultureIgnoreCase))
@@ -170,6 +192,12 @@ namespace TrayApp
         {
             try
             {
+                // Check file extension
+                string fileExtension = Path.GetExtension(e.FullPath);
+                if (!allowedExtensions.Contains(fileExtension))
+                {
+                    return;
+                }
                 foreach (string watchPath in watchPaths)
                 {
                     if (e.FullPath.StartsWith(watchPath))
@@ -214,6 +242,12 @@ namespace TrayApp
         {
             try
             {
+                // Check file extension
+                string fileExtension = Path.GetExtension(e.FullPath);
+                if (!allowedExtensions.Contains(fileExtension))
+                {
+                    return;
+                }
                 foreach (string watchPath in watchPaths)
                 {
                     if (e.FullPath.StartsWith(watchPath))
@@ -352,6 +386,15 @@ namespace TrayApp
             // FileSystemWatcher를 정지하고 리소스를 정리하는 코드를 여기에 추가하세요.
 
             this.Close();
+        }
+
+        private void includeSubfoldersCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            // Check if the checkbox is checked or not and set the 'IncludeSubdirectories' property of the FileSystemWatcher accordingly
+            foreach (var watcher in watcherList)
+            {
+                watcher.IncludeSubdirectories = includeSubfoldersCheckBox.Checked;
+            }
         }
 
 
