@@ -6,3 +6,11 @@ C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.cspro
 C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.csproj.CoreCompileInputs.cache
 C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.exe
 C:\Users\cha\Desktop\FCPJT\filesystemwatcher\obj\Release\filesystemwatcher.pdb
+C:\Users\cha\Documents\GitHub\fcpjt_filesystemwatcher\filesystemwatcher\bin\Release\filesystemwatcher.exe
+C:\Users\cha\Documents\GitHub\fcpjt_filesystemwatcher\filesystemwatcher\bin\Release\filesystemwatcher.pdb
+C:\Users\cha\Documents\GitHub\fcpjt_filesystemwatcher\filesystemwatcher\obj\Release\TrayApp.MainForm.resources
+C:\Users\cha\Documents\GitHub\fcpjt_filesystemwatcher\filesystemwatcher\obj\Release\filesystemwatcher.Properties.Resources.resources
+C:\Users\cha\Documents\GitHub\fcpjt_filesystemwatcher\filesystemwatcher\obj\Release\filesystemwatcher.csproj.GenerateResource.cache
+C:\Users\cha\Documents\GitHub\fcpjt_filesystemwatcher\filesystemwatcher\obj\Release\filesystemwatcher.csproj.CoreCompileInputs.cache
+C:\Users\cha\Documents\GitHub\fcpjt_filesystemwatcher\filesystemwatcher\obj\Release\filesystemwatcher.exe
+C:\Users\cha\Documents\GitHub\fcpjt_filesystemwatcher\filesystemwatcher\obj\Release\filesystemwatcher.pdb
